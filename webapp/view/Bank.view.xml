@@ -1,6 +1,16 @@
 <mvc:View controllerName="com.sap.mybankdetails.controller.Bank"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
     <Page id="page" title="{i18n>title}">
+    <headerContent>
+    <Button id="btn2" type="Emphasized" text="Refresh" press="onRefresh"></Button>
+    </headerContent>
+        <content >
+        <core:Fragment id="frg"
+              fragmentName="com.sap.mybankdetails.view.fragment.BankDetails"
+              type="XML"/>
+            <Button id="btn1" type="Neutral" text="More Details" press="onMoreDet" class="sapUiSmallMargin" />
+        </content>
     </Page>
 </mvc:View>
