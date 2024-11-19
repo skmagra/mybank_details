@@ -4,13 +4,13 @@
     xmlns:core="sap.ui.core">
     <Page id="page" title="{i18n>title}">
     <headerContent>
-    <Button id="btn2" type="Emphasized" text="Refresh" press="onRefresh"></Button>
+    <Button id="btn2" type="Emphasized" text="{i18n>ref}" press="onRefresh"></Button>
     </headerContent>
         <content >
         <core:Fragment id="frg"
               fragmentName="com.sap.mybankdetails.view.fragment.BankDetails"
               type="XML"/>
-            <Button id="btn1" type="Neutral" text="More Details" press="onMoreDet" class="sapUiSmallMargin" />
+            <Button id="btn1" type="Neutral" text="{i18n>moreDet}" press="onMoreDet" class="sapUiSmallMargin" />
         </content>
     </Page>
 </mvc:View>

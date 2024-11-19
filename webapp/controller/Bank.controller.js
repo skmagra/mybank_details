@@ -5,6 +5,31 @@ sap.ui.define([
 
     return Controller.extend("com.sap.mybankdetails.controller.Bank", {
         onInit() {
+            debugger
+            //method 1 , less optimised, repeating code lines
+//            if (navigator.language == 'es') {
+//                var i18nModel = this.getOwnerComponent().getModel("i18n_es");
+//                this.getOwnerComponent().setModel(i18nModel, "i18n")
+//            } else if (navigator.language == 'en') {
+//                var i18nModel = this.getOwnerComponent().getModel("i18n");
+//                this.getOwnerComponent().setModel(i18nModel, "i18n")
+//            }
+//            else {
+//                var i18nModel = this.getOwnerComponent().getModel("i18n");
+//                this.getOwnerComponent().setModel(i18nModel, "i18n")
+
+//        method 2, more optimised, less code lines
+            var oMod;
+            if(navigator.language == 'es'){
+             oMod = 'i18n_es';
+            }else if(navigator.language == 'en'){
+             oMod = 'i18n';
+            }else{
+              oMod = 'i18n' ; 
+            }
+            var i18nModel = this.getOwnerComponent().getModel(oMod);
+                this.getOwnerComponent().setModel(i18nModel, "i18n");
+            
         },
         onMoreDet: function () {
             //Create Dialog Lazilly
@@ -29,19 +54,19 @@ sap.ui.define([
                 }
             );
         },
-        onClose: function(){
-         this.byId("moreBankDet").close()
+        onClose: function () {
+            this.byId("moreBankDet").close()
         },
-        onRefresh: function(){
-            if(!this.onRef){
+        onRefresh: function () {
+            if (!this.onRef) {
                 this.onRef = this.loadFragment(
-                {
-                    name: "com.sap.mybankdetails.view.fragment.Refresh"
-                }
+                    {
+                        name: "com.sap.mybankdetails.view.fragment.Refresh"
+                    }
                 );
             }
             this.onRef.then(
-                function(oDialog1){
+                function (oDialog1) {
                     oDialog1.open();
                 }
             );
