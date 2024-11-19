@@ -51,7 +51,13 @@
                 "settings": {
                     "bundleName": "com.sap.mybankdetails.i18n.i18n"
                 }
-            }
+            },
+           "i18n_es": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.sap.mybankdetails.i18n.i18n_es"
+                }
+            } 
         },
         "resources": {
             "css": [
